@@ -32,7 +32,7 @@ struct Card: View {
                     // 变成圆形
                     .mask(Circle())
                     // 设置大小
-                    .frame(width: 40)
+                    .frame(width: 40,height: 40)
                 
                 Text(username)
                 

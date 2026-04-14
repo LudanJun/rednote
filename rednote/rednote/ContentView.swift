@@ -12,76 +12,18 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                Color.clear.frame(height: 40)
-                // 设置body内容
-
-                // 绑定值
-                TabView(selection: $selectValue) {
-                    VStack {
-                        // 顶部对齐
-                        HStack(alignment: .top) {
-                            // 两栏布局
-                            VStack {
-                                Card()
-                                Card(image: "image2")
-                            }
-                            VStack {
-                                Card(image: "image3")
-                                Card()
-                            }
-                        }
+            VStack(spacing: 0) {
+                // 顶部内容
+                HStack(spacing: 0) {
+                    // 导航栏左侧的搜索图标
+                    Button {
+                    } label: {
+                        Image(systemName: "magnifyingglass")
                     }
-                    .tag(0)
-                    .frame(maxWidth: .infinity) // 左右撑满
+                    .foregroundColor(.black) // 设置前景色
+                    .opacity(0)
 
-                    VStack {
-                        // 顶部对齐
-                        HStack(alignment: .top) {
-                            // 两栏布局
-                            VStack {
-                                Card()
-                                Card(image: "image2")
-                            }
-                            VStack {
-                                Card(image: "image2")
-                                Card()
-                            }
-                        }
-                    }
-                    .tag(1)
-                    .frame(maxWidth: .infinity) // 左右撑满
-
-                    VStack {
-                        // 顶部对齐
-                        HStack(alignment: .top) {
-                            // 两栏布局
-                            VStack {
-                                Card()
-                                Card(image: "image3")
-                            }
-                            VStack {
-                                Card(image: "image3")
-                                Card()
-                            }
-                        }
-                    }
-                    .tag(2)
-                    .frame(maxWidth: .infinity) // 左右撑满
-                }
-                // 分页方式
-                .tabViewStyle(.page)
-                // 设置frame大小不然显示不出来
-                .frame(minHeight: SCREEN_HEIGHT)
-            }
-            // 设置背景色
-            .background(.gray.opacity(0.2))
-            .ignoresSafeArea()
-            // 导航栏配置
-            .toolbar {
-                // placement: .principal = 导航栏中间
-                ToolbarItem(placement: .principal) {
-                    // 导航栏的三个button
+                    Spacer()
                     HStack {
                         Button {
                             selectValue = 0
@@ -107,9 +49,7 @@ struct ContentView: View {
                         }
                     }
                     .foregroundColor(.black) // 设置前景色
-                }
-                // navigationBarTrailing = 导航栏最右侧
-                ToolbarItem(placement: .navigationBarTrailing) {
+                    Spacer()
                     // 导航栏右侧的搜索图标
                     Button {
                     } label: {
@@ -117,8 +57,73 @@ struct ContentView: View {
                     }
                     .foregroundColor(.black) // 设置前景色
                 }
+
+                .padding()
+
+                // 主题内容 selection联动指定的tag值
+                TabView(selection: $selectValue) {
+                    ScrollView(.vertical, showsIndicators: false) {
+                        HStack(alignment: .top) {
+                            VStack {
+                                Card()
+                                Card(image: "image2")
+                            }
+
+                            VStack {
+                                Card(image: "image3")
+                                Card()
+                            }
+                        }
+                    }
+                    .tag(0)
+                    .padding(.vertical,5)
+
+
+                    ScrollView(.vertical, showsIndicators: false) {
+                        HStack(alignment: .top) {
+                            VStack {
+                                Card()
+                                Card(image: "image1")
+                            }
+
+                            VStack {
+                                Card(image: "image1")
+                                Card()
+                            }
+                        }
+                    }
+                    .tag(1)
+                    .padding(.vertical,5)
+
+
+                    ScrollView(.vertical, showsIndicators: false) {
+                        HStack(alignment: .top) {
+                            VStack {
+                                Card()
+                                Card(image: "image3")
+                            }
+
+                            VStack {
+                                Card(image: "image2")
+                                Card()
+                            }
+                        }
+                    }
+                    .tag(2)
+                    .padding(.vertical,5)
+
+                }
+                // 分页方式
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .background(.gray.opacity(0.2))
+
+                // 底部内容
+                Tabbar()
             }
+            .background(.white)
         }
+
+        .navigationBarHidden(true)
     }
 }
 
