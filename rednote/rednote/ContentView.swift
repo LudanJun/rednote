@@ -58,7 +58,7 @@ struct ContentView: View {
                 }
 
                 .padding()
-
+                Divider()
                 // 主题内容 selection联动指定的tag值
                 TabView(selection: $selectValue) {
                     FollowView()
