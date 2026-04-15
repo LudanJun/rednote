@@ -18,13 +18,12 @@ struct ContentView: View {
                     // 导航栏左侧的搜索图标
                     Button {
                     } label: {
-                        Image(systemName: "magnifyingglass")
+                        Image(systemName: "globe.europe.africa")
                     }
                     .foregroundColor(.black) // 设置前景色
-                    .opacity(0)
 
                     Spacer()
-                    HStack {
+                    HStack(spacing: 30) {
                         Button {
                             selectValue = 0
 
@@ -62,60 +61,18 @@ struct ContentView: View {
 
                 // 主题内容 selection联动指定的tag值
                 TabView(selection: $selectValue) {
-                    ScrollView(.vertical, showsIndicators: false) {
-                        HStack(alignment: .top) {
-                            VStack {
-                                Card()
-                                Card(image: "image2")
-                            }
+                    FollowView()
+                        .tag(0)
 
-                            VStack {
-                                Card(image: "image3")
-                                Card()
-                            }
-                        }
-                    }
-                    .tag(0)
-                    .padding(.vertical,5)
+                    DiscoverView()
+                        .tag(1)
 
-
-                    ScrollView(.vertical, showsIndicators: false) {
-                        HStack(alignment: .top) {
-                            VStack {
-                                Card()
-                                Card(image: "image1")
-                            }
-
-                            VStack {
-                                Card(image: "image1")
-                                Card()
-                            }
-                        }
-                    }
-                    .tag(1)
-                    .padding(.vertical,5)
-
-
-                    ScrollView(.vertical, showsIndicators: false) {
-                        HStack(alignment: .top) {
-                            VStack {
-                                Card()
-                                Card(image: "image3")
-                            }
-
-                            VStack {
-                                Card(image: "image2")
-                                Card()
-                            }
-                        }
-                    }
-                    .tag(2)
-                    .padding(.vertical,5)
-
+                    NearView()
+                        .tag(2)
                 }
-                // 分页方式
+                // 分页方式 never:不显示小圆点
                 .tabViewStyle(.page(indexDisplayMode: .never))
-                .background(.gray.opacity(0.2))
+                .background(.gray.opacity(0.1))
 
                 // 底部内容
                 Tabbar()

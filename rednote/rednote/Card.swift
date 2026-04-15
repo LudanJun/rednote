@@ -27,13 +27,14 @@ struct Card: View {
             HStack(spacing: 0) {
                 // 头像信息
                 Image(headImg)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    // 变成圆形
-                    .mask(Circle())
-                    // 设置大小
-                    .frame(width: 40,height: 40)
-                
+                    .CircleImage()
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    // 变成圆形
+//                    .mask(Circle())
+//                    // 设置大小
+//                    .frame(width: 40,height: 40)
+                Spacer().frame(width: 8)
                 Text(username)
                 
                 Spacer()
