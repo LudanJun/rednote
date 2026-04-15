@@ -14,7 +14,7 @@ struct FollowCell: View {
     var headImag :String = "tx002"
     var userName :String = "孙悟空"
     var timeStr: String = "5天前"
-    var contentImg: String = "image1"
+    var contentImg: String = "image3"
 
     var body: some View {
         // 关注的人发的内容
