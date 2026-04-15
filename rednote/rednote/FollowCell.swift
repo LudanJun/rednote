@@ -22,7 +22,7 @@ struct FollowCell: View {
             HStack {
                 // 导航头像
                 Image(headImag)
-                    .CircleImage(radio: 50)
+                    .CircleImage(radius: 50)
                 Text(userName)
                 Text(timeStr)
                     .font(.footnote)
@@ -92,7 +92,7 @@ struct FollowCell: View {
                 
                 // 评论
                 Image("tx003")
-                    .CircleImage(radio: 40)
+                    .CircleImage(radius: 40)
                     .padding(5)
                 TextField("喜欢就给一个评论",text: $inputText)
                 Spacer()

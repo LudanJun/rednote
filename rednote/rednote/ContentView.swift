@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selectValue = 0
+    @State var selectValue = 1
 
     var body: some View {
         NavigationView {
@@ -56,8 +56,8 @@ struct ContentView: View {
                     }
                     .foregroundColor(.black) // 设置前景色
                 }
-
                 .padding()
+                
                 Divider()
                 // 主题内容 selection联动指定的tag值
                 TabView(selection: $selectValue) {
@@ -66,7 +66,7 @@ struct ContentView: View {
 
                     DiscoverView()
                         .tag(1)
-
+                        .environmentObject(DiscoverViewModel())
                     NearView()
                         .tag(2)
                 }

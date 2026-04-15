@@ -16,7 +16,7 @@ struct FollowView: View {
                     ForEach(0 ..< 3) { _ in
                         VStack(spacing: 0) {
                             Image("image3")
-                                .CircleImage(radio: 80)
+                                .CircleImage(radius: 80)
                             Text("用户名")
                         }
                     }
